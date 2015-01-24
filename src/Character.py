@@ -8,7 +8,8 @@ class Character():
     def __init__(self):
         self.image = pygame.image.load("skin.png")
         self.x=64
-        self.y=8*32
+        self.ground = 10*32
+        self.y=self.ground
         self.clock = pygame.time.Clock()
         self.counter = 0 
         self.vy = 0
@@ -26,16 +27,16 @@ class Character():
             elif dir == 1:
                 self.x+=8;
     def jump(self):
-        self.vy = -10
+        self.vy = -20
     def update(self):
         self.y+= self.vy
     def grav(self):
-        if(self.y > 8*32):
-            self.y = 8*32
+        if(self.y > self.ground):
+            self.y = self.ground
             self.vy=0
-            self.gravcount = 10
+            self.gravcount = 5
         elif(self.gravcount==0):
             self.update()
             self.vy+=1
-            self.gravcount = 10
+            self.gravcount = 5
         self.gravcount-=1
