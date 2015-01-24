@@ -20,7 +20,7 @@ class Character():
         #pygame.display.flip()
     def move(self,dir):
         self.counter+=1
-        if(self.counter >12):
+        if(self.counter >1):
             self.counter = 0
             if dir == 0:
                 self.x-=8;
@@ -34,9 +34,9 @@ class Character():
         if(self.y > self.ground):
             self.y = self.ground
             self.vy=0
-            self.gravcount = 5
+            self.gravcount = 1
         elif(self.gravcount==0):
             self.update()
             self.vy+=1
-            self.gravcount = 5
-        self.gravcount-=1
+            self.gravcount = 1
+        else :self.gravcount-=1

@@ -2,6 +2,7 @@
 import pygame
 from Character import Character
 from background import background
+from platform import platform
 # define a main function
 def main():
     blocksize = 32
@@ -13,7 +14,6 @@ def main():
     running = True
     char = Character()
     background2 = background()
-   
     keys = [0,0]
     # main loop
     def draw ():
