@@ -3,10 +3,11 @@ import pygame
 from Character import Character
 # define a main function
 def main():
+    blocksize = 32
     # initialize the pygame module
     pygame.init()
     pygame.display.set_caption("Odd Oddessy")
-    screen = pygame.display.set_mode((1024,576))
+    screen = pygame.display.set_mode((1024,612))
     # define a variable to control the main loop
     running = True
     char = Character()
