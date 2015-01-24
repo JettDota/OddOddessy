@@ -7,7 +7,7 @@ def main():
     # initialize the pygame module
     pygame.init()
     pygame.display.set_caption("Odd Oddessy")
-    screen = pygame.display.set_mode((1024,512))
+    screen = pygame.display.set_mode((1024,612))
     # define a variable to control the main loop
     running = True
     char = Character()
@@ -24,6 +24,8 @@ def main():
                 if event.key==pygame.K_a:
                     keys[1]=1
                     char.counter = 0
+                if event.key==pygame.K_w:
+                    char.jump()
             if event.type == pygame.KEYUP:
                 if event.key==pygame.K_d:
                     keys[0]=0
@@ -36,7 +38,7 @@ def main():
             char.move(0)
         if(keys[0]):
             char.move(1)
-    
+        char.grav()
     
 # run the main function only if this module is executed as the main script
 # (if you import this as a module then nothing is executed)
