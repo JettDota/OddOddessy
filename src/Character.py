@@ -15,9 +15,9 @@ class Character():
         self.vy = 0
         self.gravcount=0
     def draw(self, screen):
-        screen.fill((55,55,55)) #clear screen
+        #screen.fill((55,55,55)) #clear screen
         screen.blit(self.image,(self.x,self.y))
-        pygame.display.flip()
+        #pygame.display.flip()
     def move(self,dir):
         self.counter+=1
         if(self.counter >12):

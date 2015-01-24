@@ -1,6 +1,7 @@
 # import the pygame module, so you can use it
 import pygame
 from Character import Character
+from background import background
 # define a main function
 def main():
     blocksize = 32
@@ -11,10 +12,17 @@ def main():
     # define a variable to control the main loop
     running = True
     char = Character()
+    background2 = background()
+   
     keys = [0,0]
     # main loop
-    while running:
+    def draw ():
+        screen.fill((55,55,55))
+        background2.draw(screen)
         char.draw(screen)
+        pygame.display.flip()
+    while running:
+        draw()
         # event handling, gets all event from the eventqueue
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
@@ -35,9 +43,18 @@ def main():
                 # change the value to False, to exit the main loop
                 running = False
         if(keys[1]):
-            char.move(0)
+            # we nee another check here for the game start
+            if char.x <= 250:
+                background2.scrollRight()
+            else:
+                char.move(0)
+            
         if(keys[0]):
-            char.move(1)
+            #insert check
+            if char.x >= 750:
+                background2.scrollLeft()
+            else:
+                char.move(1)
         char.grav()
     
 # run the main function only if this module is executed as the main script
