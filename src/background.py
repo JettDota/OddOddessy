@@ -10,9 +10,9 @@ class background():
     def __init__(self):
         self.positions = [3]
         self.dasClock = pygame.time.Clock()
-        self.image1 = pygame.image.load()
-        self.image2 = pygame.image.load()
-        self.image2 = pygame.image.load()
+        self.image1 = pygame.image.load("Bohinj_1000x600.jpg")
+        self.image2 = pygame.image.load("P1010376.jpg")
+        self.image2 = pygame.image.load("wallpaper_1000x600_swirl.jpg")
    
     #background_size = background.get_size()
     #background_rect = background.get_rect()
@@ -39,4 +39,10 @@ class background():
                 self.positions[0] = self.positions[2]+1000
             if(self.screenZero == 2):
                 self.positions[1] = self.positions[0]+1000
-            #everytime your moving right and a frame is at 0, flip it to the 
+            #everytime your moving right and a frame is at 0, flip it to the
+    def draw(self, screen):
+        
+        screen.blit(self.image1, (self.positions[0], 0))
+        screen.blit(self.image2, (self.positions[1], 0))
+        screen.blit(self.image3, (self.positions[2], 0))
+        
