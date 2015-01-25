@@ -54,15 +54,17 @@ def main():
             # we nee another check here for the game start
             if char.x <= 250:
                 background2.scrollRight()
+                gb.moveScreen(0)
             else:
                 char.move(0)
             
         if(keys[0]):
             #insert check
+            char.move(1)
             if char.x >= 750:
                 background2.scrollLeft()
-            else:
-                char.move(1)
+                gb.moveScreen(1)
+
         char.characterupdate(gb.checkCol)
     
 # run the main function only if this module is executed as the main script

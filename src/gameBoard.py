@@ -13,6 +13,7 @@ class gameBoard(object):
         self.platforms = [[-1 for x in range (256)]for y in range (0,20)]
         for i in range(0,256):
             self.platforms[19][i]=platform(i,18)
+        self.platforms[10][100]
     def draw(self,screen):
         for i in range(20):
             for j in range((int)(self.pixelloc/32),(int)(self.pixelloc/32)+33):
