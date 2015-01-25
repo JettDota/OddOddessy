@@ -6,6 +6,9 @@ from platform import platform
 # define a main function
 def main():
     blocksize = 32
+    platforms =[platform(0, 18),platform(1, 18),platform(2, 18),]
+    def checkForPlatform():
+        q=1
     # initialize the pygame module
     pygame.init()
     pygame.display.set_caption("Odd Oddessy")
@@ -20,6 +23,8 @@ def main():
         screen.fill((55,55,55))
         background2.draw(screen)
         char.draw(screen)
+        for i in platforms:
+            i.draw(screen)
         pygame.display.flip()
     while running:
         draw()
@@ -55,7 +60,7 @@ def main():
                 background2.scrollLeft()
             else:
                 char.move(1)
-        char.grav()
+        #char.grav()
     
 # run the main function only if this module is executed as the main script
 # (if you import this as a module then nothing is executed)

@@ -8,12 +8,11 @@ class Character():
     def __init__(self):
         self.image = pygame.image.load("skin.png")
         self.x=64
-        self.ground = 10*32
-        self.y=self.ground
+        self.y=16*32
         self.clock = pygame.time.Clock()
         self.counter = 0 
         self.vy = 0
-        self.gravcount=0
+        
     def draw(self, screen):
         #screen.fill((55,55,55)) #clear screen
         screen.blit(self.image,(self.x,self.y))
@@ -30,13 +29,14 @@ class Character():
         self.vy = -20
     def update(self):
         self.y+= self.vy
-    def grav(self):
-        if(self.y > self.ground):
-            self.y = self.ground
+        
+   
+    def characterupdate (self, check):
+        #check y
+        if(check(self.x, self.y + 65) == True ):
+            self.y = 0 
             self.vy=0
-            self.gravcount = 1
-        elif(self.gravcount==0):
-            self.update()
-            self.vy+=1
-            self.gravcount = 1
-        else :self.gravcount-=1
+        if(check(self.x +33, self.y) == True ):
+            self.x = 0 
+            
+            self.vy=0
