@@ -29,7 +29,7 @@ class gameBoard(object):
         for i in range(0,20):
             for j in range(0,256):
                 if(self.platforms[i][j]!=-1):
-                    if(i*32<y and i*32+32>y):
-                        if(j*32<x and j*32+32>x):
+                    if(i*32<=y and i*32+32>=y):
+                        if(j*32<=x and j*32+32>=x):
                             return True
         return False

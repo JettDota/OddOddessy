@@ -26,8 +26,6 @@ def main():
         background2.draw(screen)
         gb.draw(screen)
         char.draw(screen)
-        for i in platforms:
-            i.draw(screen,0)
         pygame.display.flip()
     while running:
         draw()
@@ -42,6 +40,8 @@ def main():
                     char.counter = 0
                 if event.key==pygame.K_w:
                     char.jump()
+                if event.key==pygame.K_r:
+                    char = Character()
             if event.type == pygame.KEYUP:
                 if event.key==pygame.K_d:
                     keys[0]=0
