@@ -15,9 +15,9 @@ class Character():
         self.appex=-100
         self.origin = 0
         
-    def draw(self, screen):
+    def draw(self, screen,pos):
         #screen.fill((55,55,55)) #clear screen
-        screen.blit(self.image,(self.x,self.y))
+        screen.blit(self.image,(self.x-pos,self.y))
         #pygame.display.flip()
     def move(self,dir):
         self.counter+=1
@@ -27,6 +27,9 @@ class Character():
                 self.x-=8;
             elif dir == 1:
                 self.x+=8;
+            self.image = pygame.image.load("Character Animations/RunGiff.gif")
+        
+            
     def jump(self):
         self.vy += -5
         self.origin = self.y

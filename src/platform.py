@@ -17,4 +17,4 @@ class platform(object):
         self.y=y
         self.size =32
     def draw(self,screen,loc):
-        screen.blit(pygame.image.load("Grassland/Grass_Tile1.png"),(loc+self.x*self.size,self.y*self.size))
+        screen.blit(pygame.image.load("Grassland/Grass_Tile1.png"),(self.x*self.size,self.y*self.size))

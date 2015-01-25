@@ -22,7 +22,7 @@ class gameBoard(object):
             
     def moveScreen(self,right):
         if(right):
-            self.pixelloc-=8
+            self.pixelloc-=1
         elif(right==False):
             self.pixelloc+=8
     def checkCol(self,x,y):

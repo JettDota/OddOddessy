@@ -20,12 +20,14 @@ def main():
     background2 = background()
     gb = gameBoard()
     keys = [0,0]
+   
     # main loop
     def draw ():
+        
         screen.fill((55,55,55))
         background2.draw(screen)
         gb.draw(screen)
-        char.draw(screen)
+        char.draw(screen,gb.pixelloc)
         pygame.display.flip()
     while running:
         draw()
@@ -53,18 +55,28 @@ def main():
         if(keys[1]):
             # we nee another check here for the game start
             if char.x <= 250:
-                background2.scrollRight()
-                gb.moveScreen(0)
+                if char.x >= gb.pixelloc + 250:
+                    background2.scrollRight()
+                    gb.moveScreen(0)
+                elif(char.x > 8):
+                    char.move(0)
             else:
                 char.move(0)
             
-        if(keys[0]):
+        elif(keys[0]):
             #insert check
-            char.move(1)
+            #
             if char.x >= 750:
-                background2.scrollLeft()
-                gb.moveScreen(1)
-
+                if char.x <= gb.pixelloc + 256*32-8:
+                    background2.scrollLeft()
+                    gb.moveScreen(1)
+                elif(char.x < gb.pixelloc + 256*32-8):
+                    char.move(1)
+            else:
+                char.move(1)
+        else:
+            
+            char.image = pygame.image.load("Character Animations/IdleGiff.gif")
         char.characterupdate(gb.checkCol)
     
 # run the main function only if this module is executed as the main script

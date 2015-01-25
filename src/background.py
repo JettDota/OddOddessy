@@ -10,9 +10,10 @@ class background():
     def __init__(self):
         self.positions = [0, 1000, -1000]
         self.dasClock = pygame.time.Clock()
-        self.image1 = pygame.image.load("Bohinj_1000x600.jpg")
-        self.image2 = pygame.image.load("P1010376.jpg_1000x600.jpg")
-        self.image3 = pygame.image.load("wallpaper_1000x600_swirl.jpg")
+        self.sun = pygame.image.load("Grassland/Grassland_Backgroound_MountainSun.png")
+        self.image1 = pygame.image.load("Grassland/Grassland_Background.png")
+        self.image2 = pygame.image.load("Grassland/Grassland_Background.png")
+        self.image3 = pygame.image.load("Grassland/Grassland_Background.png")
    
     #background_size = background.get_size()
     #background_rect = background.get_rect()
@@ -29,7 +30,7 @@ class background():
         self.i = 0
         self.screenZero = -1;
         for self.i in range (3):
-            self.positions[self.i] -= 2
+            self.positions[self.i] -= 3
             if (self.positions[self.i] == 0):
                 self.screenZero = self.i
         if(self.screenZero != -1):
@@ -44,7 +45,7 @@ class background():
         self.i = 0
         self.screenZero = -1;
         for self.i in range (3):
-            self.positions[self.i] += 2
+            self.positions[self.i] += 3
             if (self.positions[self.i] == 0):
                 self.screenZero = self.i
         if(self.screenZero != -1):
@@ -56,9 +57,10 @@ class background():
                 self.positions[1] = self.positions[0]-1000
             #everytime your moving right and a frame is at 0, flip it to the
     def draw(self, screen):
-        
+        screen.blit(self.sun, (0, 0))
         screen.blit(self.image1, (self.positions[0], 0))
         screen.blit(self.image2, (self.positions[1], 0))
         screen.blit(self.image3, (self.positions[2], 0))
+        
         #pygame.display.flip()
         
