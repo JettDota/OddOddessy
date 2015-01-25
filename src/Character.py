@@ -38,5 +38,6 @@ class Character():
             self.vy=0
         if(check(self.x +33, self.y) == True ):
             self.x = 0 
-            
-            self.vy=0
+            #self.vx=0
+        self.update()
+        

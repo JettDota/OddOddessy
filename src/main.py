@@ -63,7 +63,7 @@ def main():
                 background2.scrollLeft()
             else:
                 char.move(1)
-        #char.grav()
+        char.characterupdate(gb.checkCol)
     
 # run the main function only if this module is executed as the main script
 # (if you import this as a module then nothing is executed)
