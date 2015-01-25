@@ -17,12 +17,14 @@ class gameBoard(object):
         self.size = 256
         self.pixelsize = 256*32
         self.pixelloc = 0
-        self.platforms = [None]*20[None]*256
+        self.platforms = [[None for x in range (256)]for x in range (20)]
         for i in range(0,256):
             self.platforms[19][i]=platform(i,19)
     def draw(self,screen):
-        for i in self.platforms:
-            i.draw(screen,self.pixelloc)
+        for i in range(20):
+            for j in range((int)(self.pixelloc/32)-1,(int)(self.pixelloc/32)+33):
+                if(self.platforms[i][j]!=None):
+                    self.platforms[i][j].draw(screen,self.pixelloc)
             
     def moveScreen(self,right):
         if(right):
