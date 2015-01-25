@@ -3,6 +3,7 @@ import pygame
 from Character import Character
 from background import background
 from platform import platform
+from gameBoard import gameBoard
 # define a main function
 def main():
     blocksize = 32
@@ -17,14 +18,16 @@ def main():
     running = True
     char = Character()
     background2 = background()
+    gb = gameBoard()
     keys = [0,0]
     # main loop
     def draw ():
         screen.fill((55,55,55))
         background2.draw(screen)
+        gb.draw(screen)
         char.draw(screen)
         for i in platforms:
-            i.draw(screen)
+            i.draw(screen,0)
         pygame.display.flip()
     while running:
         draw()
